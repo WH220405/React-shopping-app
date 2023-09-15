@@ -6,7 +6,7 @@ import "./App.css";
 import MainNavbar from "./components/MainNavbar";
 import Products from "./components/Products/Products";
 import ProductDetails from "./components/Products/SingleProduct";
-import Cart from "./components/Cart/Cart";
+import CartProduct from "./components/Cart/CartProduct";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 //import History from "./components/Cart/History";
@@ -16,17 +16,18 @@ import SingleProduct from "./components/Products/SingleProduct";
 import GetInCategory from "./components/Products/GetInCategory";
 import Cancel from "./components/Cart/Cancel";
 import Success from "./components/Cart/Success";
+import CartProvider from "./CartContext";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <Container>
         <MainNavbar />
         <Routes>
           <Route path="/" element={<Products />}></Route>
           <Route path="/products/:category" element={<GetInCategory />}></Route>
           <Route path="/products/:id" element={<SingleProduct />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/cartproduct" element={<CartProduct />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/cancel" element={<Cancel />}></Route>
@@ -39,7 +40,7 @@ function App() {
           ></Route>
         </Routes>
       </Container>
-    </>
+    </CartProvider>
   );
 }
 
