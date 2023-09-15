@@ -33,7 +33,7 @@ const MainNavbar = () => {
       .catch(err => console.log(err));
   };
 
-  const productsCount = cart.items.reduce(
+  const productsCount = cart?.items.reduce(
     (sum, product) => sum + product.quantity,
     0
   );
@@ -57,7 +57,7 @@ const MainNavbar = () => {
           {productsCount > 0 ? (
             <>
               <p>Items in your cart:</p>
-              {cart.items.map((currentProduct, idx) => (
+              {cart?.items.map((currentProduct, idx) => (
                 <CartProduct
                   key={idx}
                   id={currentProduct.id}
@@ -70,7 +70,7 @@ const MainNavbar = () => {
               </Button>
             </>
           ) : (
-            !cart.items.length && <p>Your cart is empty!</p>
+            !cart?.items.length && <p>Your cart is empty!</p>
           )}
         </Modal.Body>
       </Modal>
